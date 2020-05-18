@@ -1,0 +1,49 @@
+.estate-single {
+  margin: 1rem;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: auto;
+      height: 15rem;
+    }
+  }
+
+  &__title {
+    max-width: 13rem;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__subtitle {
+    text-align: center;
+  }
+
+  &__price {
+    font-size: 1.5rem;
+
+    // .price.1::before {
+    //   content: "$";
+    // }
+    // .price.2::after {
+    //   content: " лв.";
+    // }
+    // .price.3::after {
+    //   content: " €";
+    // }
+  }
+
+  &__buttons {
+    width: 100%;
+    text-align: center;
+    
+    .details {
+      width: 85%;
+    }
+  }
+}

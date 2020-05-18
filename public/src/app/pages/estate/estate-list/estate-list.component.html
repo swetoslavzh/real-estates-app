@@ -1,0 +1,5 @@
+<div class="estate-list">
+  <div class="estate-list__single" *ngFor="let estate of (estates$ | async)">
+    <app-estate-single [estate]="estate"></app-estate-single>
+  </div>
+</div>

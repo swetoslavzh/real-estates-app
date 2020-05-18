@@ -1,0 +1,119 @@
+<!-- 
+<div class="estate-details">
+  <mat-card>
+  <div class="estate-details__title">
+    <mat-card-header class="estate-title">
+      {{ estate.name }}
+    </mat-card-header>
+  </div>
+  
+    <div class="estate-details__content">
+      <div class="estate-details__content-left"> -->
+
+        <!-- <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery> -->
+        
+        <!-- <div class="user-details">
+          <div class="title">Информация за продавача</div>
+
+          <div class="details">
+            <div class="user-email field" *ngIf="estate.sellerName">
+              <div class="field-title">Име: </div>
+              <div class="field-value">
+                {{ estate.sellerName }}
+              </div>
+            </div>
+
+            <div class="user-email field">
+              <div class="field-title">Телефон: </div>
+              <div class="field-value">
+                {{ estate.phoneNumber }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <mat-card-content>
+      <div class="estate-details__content-right">
+        <div class="price-field">
+          <div class="field-title">Цена: </div>
+          <div class="field-value  price {{ currencyEnum[estate.currency] }}">
+            {{ estate.price }}
+          </div>
+        </div> -->
+
+        <!-- <div class="actions">
+          <a class="action-btn" mat-raised-button color="primary" href="mailto:{{ estate.email }}">Изпрати имейл</a>
+          <a class="action-btn" mat-raised-button color="warn" href="tel:{{ estate.phone }}">Обади се</a>
+        </div> -->
+<!-- 
+        <div *ngIf="estate.areaSq" class="quadrature field">
+          <div class="field-title">Квадратура: </div> 
+          <div class="field-value">
+            {{ estate.areaSq }} кв.м.
+          </div>
+        </div>
+        
+        <div *ngIf="estate.floor" class="floor field">
+          <div class="field-title">Етаж: </div>
+          <div class="field-value">
+            {{ floorEnum[estate.floor] }}
+          </div>
+        </div>
+
+        <div *ngIf="estate.condition" class="floor field">
+          <div class="field-title">Състояние: </div>
+          <div class="field-value">
+            {{ conditionEnum[estate.condition] }}
+          </div>
+        </div>
+
+        <div *ngIf="estate.additionalInfo" class="description field">
+          <div class="field-title">Описание: </div>
+          <div class="field-value">
+            {{ estate.additionalInfo }}
+          </div>
+        </div>
+
+        <div *ngIf="estate.features" class="features field">
+          <div class="field-title">Допълнителна информация</div>
+          <ul>
+            <li *ngFor="let feature of estate.features">
+              <mat-icon matSuffix class="icon">check</mat-icon>
+              {{ featuresEnum[feature] }}
+            </li>
+          </ul>
+        </div>
+
+        
+      </div>
+    </mat-card-content>
+    </div>
+  </mat-card>
+</div> -->
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="key">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element"> {{element.key}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="value">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div class="estate-details__actions">
+  <a class="action-btn" mat-raised-button color="primary" href="estate-update/{{estate._id}}">Редактирай</a>
+  <a class="action-btn" mat-raised-button color="warn" (click)="deleteEstate(estate._id)">Изтрий</a>
+</div>

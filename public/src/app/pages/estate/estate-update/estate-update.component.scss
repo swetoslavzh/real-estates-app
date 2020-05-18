@@ -1,0 +1,86 @@
+.estate_update {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin: 2rem;
+
+  &__file-upload {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 40%;
+  }
+
+  &__estate-data {
+    display: flex;
+    flex-wrap: wrap;
+
+    .estate_update__field {
+      flex: 1;
+      margin: 1rem;
+
+      &.features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        flex-basis: 100%;
+        position: relative;
+
+        .feature-checkbox {
+          width: 30%;
+        }
+
+        .features-label {
+          position: absolute;
+          top: -2rem;
+          left: 0;
+        }
+      }
+    }
+
+    .additional-info {
+      flex: 2 0 0;
+      margin-top: 0;
+      > mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.actions {
+  margin: 2rem;
+  text-align: center;
+}
+
+.estate-image {
+  display: flex;
+  margin: 0.5rem;
+  position: relative;
+
+  img {
+    width: auto;
+    max-height: 200px;
+  }
+
+  .image-delete {
+    position: absolute;
+    top: 0.5rem;
+    right: 0;
+    background: no-repeat;
+    border: 0;
+    cursor: pointer;
+    text-shadow: 1px 1px 4px #000;
+
+    .icon {
+      color: red;
+    }
+  }
+}
+
+header {
+  h1 {
+    text-align: center;
+    font-weight: 300;
+    color: rgb(49, 49, 49);
+  }
+}

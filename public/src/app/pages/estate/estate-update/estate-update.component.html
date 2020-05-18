@@ -1,0 +1,181 @@
+<header>
+  <h1>Редактиране на обява {{ estate.name }}</h1>
+</header>
+
+<form [formGroup]="estateForm" (submit)="onSubmit()">
+
+  <div class="estate_update">
+
+    <div class="estate_update__file-upload">
+      <div class="estate_update__field">
+        <app-file-upload (files)="onFileUpload($event)" (isFilesDeleted)="onDeleteFiles()"></app-file-upload>
+      </div>
+    </div>
+
+    <div class="estate_update__estate-data">
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Вид на имота</mat-label>
+          <mat-select required formControlName="type">
+            <mat-option *ngFor="let type of (estateTypeEnum | enumToArray)"
+            [value]="type">
+              {{ estateTypeEnum[type].toUpperCase() }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Заглавие на обявата</mat-label>
+          <input required matInput formControlName="name" type="name" autocomplete="none">
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Състояние</mat-label>
+          <mat-select formControlName="condition">
+            <mat-option *ngFor="let condition of (conditionEnum | enumToArray)" [value]="condition">
+              {{ conditionEnum[condition] }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Местоположение</mat-label>
+          <mat-select 
+            required
+            formControlName="city" 
+            (selectionChange)="setRegion($event)">
+            <mat-option
+              [value]="city.id"
+              *ngFor="let city of cities">
+              {{ city.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Район</mat-label>
+          <mat-select 
+            required 
+            formControlName="region">
+            <mat-option 
+              [value]="region.id"
+              *ngFor="let region of regions">
+              {{ region.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Тип строителство</mat-label>
+          <mat-select formControlName="constructionType">
+            <mat-option *ngFor="let type of (constructionTypeEnum | enumToArray)" [value]="type">
+              {{ constructionTypeEnum[type] }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Етаж</mat-label>
+          <mat-select formControlName="floor">
+            <mat-option *ngFor="let floor of (floorEnum | enumToArray)" [value]="floor">
+              {{ floorEnum[floor] }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Цена</mat-label>
+          <input required matInput formControlName="price" type="number" [min]="0" autocomplete="none">
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Валута</mat-label>
+          <mat-select required formControlName="currency">
+            <mat-option *ngFor="let currency of (currencyEnum | enumToArray)" [value]="currency">
+              {{ currencyEnum[currency].toUpperCase() }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Квадратура</mat-label>
+          <input matInput formControlName="areaSq" type="number" [min]="0" autocomplete="none">
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Статус</mat-label>
+          <mat-select formControlName="status">
+            <mat-option *ngFor="let status of (statusEnum | enumToArray)" [value]="status">
+              {{ statusEnum[status] }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Име на продавача</mat-label>
+          <input matInput formControlName="sellerName" type="name" autocomplete="none">
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Телефон</mat-label>
+          <input required matInput formControlName="phoneNumber" type="phone" autocomplete="none">
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field">
+        <mat-form-field>
+          <mat-label>Дата на създаване</mat-label>
+          <input matInput formControlName="estateCreationTime" [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field additional-info">
+        <mat-form-field>
+          <mat-label>Допълнителна информация</mat-label>
+          <textarea matInput formControlName="additionalInfo"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="estate_update__field features">
+        <mat-label class="features-label">Особености</mat-label>
+        <div class="feature-checkbox" *ngFor="let feature of featureOptions">
+          <mat-checkbox [(ngModel)]="feature.isChecked" [ngModelOptions]="{standalone: true}">
+            {{ FeaturesTemplate[ feature.key ] }}
+          </mat-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button type="submit" 
+            [disabled]="estateForm.invalid"
+            mat-raised-button color="primary">Редактирай</button>
+  </div>
+</form>

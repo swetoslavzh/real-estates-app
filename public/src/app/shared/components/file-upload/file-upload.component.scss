@@ -1,0 +1,37 @@
+.my-drop-zone { 
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: dotted 3px lightgray; 
+}
+.nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+.another-file-over-class { border: dotted 3px green; }
+
+.file-uploader {
+  max-width: 30vw !important;
+
+  &__table {
+    margin: 1rem 0;
+
+    .file-name {
+      max-width: 10rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .size {
+      text-align: right;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    margin-top: 1rem;
+
+    .upload {
+      margin-right: 1rem;
+    }
+  }
+}

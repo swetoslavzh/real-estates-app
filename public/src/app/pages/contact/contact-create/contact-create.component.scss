@@ -1,0 +1,54 @@
+.contact-create {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin: 1rem;
+  flex-direction: column;
+
+  &__file-upload {
+    margin-right: 5rem;
+  }
+
+  &__contact-data {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70vw;
+    margin: 0 auto;
+
+    .contact-create__field {
+      flex: 1;
+      margin: 1rem;
+
+      &.features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        flex-basis: 100%;
+        position: relative;
+
+        .feature-checkbox {
+          width: 30%;
+        }
+
+        .features-label {
+          position: absolute;
+          top: -2rem;
+          left: 0;
+        }
+      }
+    }
+
+    .additional-info {
+      flex: 2 0 0;
+      margin-top: 0;
+      > mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.actions {
+  margin: 2rem auto;
+  text-align: center;
+}

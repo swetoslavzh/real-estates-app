@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <nav class="navigation">
+    <ul>
+      <!-- <li>
+        <a mat-button routerLink="/home">Начало</a>
+      </li> -->
+
+      <li>
+        <a mat-button routerLink="/estates">Обяви</a>
+      </li>
+
+      <li>
+        <a mat-button routerLink="/estate-create">Добави обява</a>
+      </li>
+
+      <button mat-button [matMenuTriggerFor]="menu">Контакти</button>
+      <mat-menu #menu="matMenu">
+        <a mat-menu-item routerLink="/contacts">Контакти</a>
+        <a mat-menu-item routerLink="/contacts-create">Създай контакт</a>
+      </mat-menu>
+
+    </ul>
+  </nav>
+</mat-toolbar>

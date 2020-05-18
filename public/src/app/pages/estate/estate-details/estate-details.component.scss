@@ -1,0 +1,111 @@
+.estate-details {
+  margin: 1rem;
+  padding: 0 5rem;
+
+  &__title {
+    margin: 2rem 0;
+
+    .estate-title {
+      text-align: center;
+      font-size: 2rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+
+    &-left {
+      display: flex;
+      flex: 1 0 40%;
+      flex-direction: column;
+      align-items: flex-end;
+      padding-right: 5rem;
+
+      .user-details {
+        margin: 2rem 0;
+
+        .title {
+          border-bottom: 1px solid #900;
+          padding: 0.5rem 0;
+          font-size: 1.3rem;
+        }
+
+        .details {  
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    &-right {
+      position: relative;
+      flex: 1 1 45%;
+      padding-right: 10rem;
+
+      .actions {
+        position: absolute;
+        top: 0.5rem;
+        right: 10rem;
+
+        .action-btn {
+          margin: 0 1rem;
+        }
+      }
+      
+      .quadrature {
+        ul {
+          margin: 0.5rem;
+        }
+      }
+
+      .price-field {
+        color: #900;
+        border: 1px solid #900;
+        display: inline-block;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .features {
+        margin-top: 1.5rem;
+        ul {
+          margin-top: 0.5rem;
+        }
+        li {
+          list-style: none;
+
+          .icon {
+            position: relative;
+            top: 5px;
+            color: #900;
+          }
+        }
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem 0;
+  }
+}
+
+.field {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.field-title {
+  font-weight: 500;
+}
+
+.mat-table {
+  width: 60vw;
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  thead {
+    display: none !important;
+  }
+}

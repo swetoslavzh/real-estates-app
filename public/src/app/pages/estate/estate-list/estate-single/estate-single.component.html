@@ -1,0 +1,15 @@
+<div class="estate-single">
+  <mat-card class="estate-single__card">
+    <mat-card-header>
+      <mat-card-title class="estate-single__title">{{ estate.name }}</mat-card-title>
+    <mat-card-subtitle class="estate-single__subtitle" >{{ estateTypeEnum[estate.type] }} - {{ estate.region.name }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="estate.picturesUrls | setImage : estate.type">
+    <mat-card-content class="estate-single__price">
+      <div class="price {{ currencyEnum[estate.currency] }}">{{ estate.price }}</div>
+    </mat-card-content>
+    <mat-card-actions class="estate-single__buttons">
+      <a mat-raised-button class="details" color="primary" [routerLink]="['/estates', estate._id]">Детайли</a>
+    </mat-card-actions>
+  </mat-card>
+</div>
