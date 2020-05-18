@@ -114,6 +114,6 @@
 </table>
 
 <div class="estate-details__actions">
-  <a class="action-btn" mat-raised-button color="primary" href="estate-update/{{estate._id}}">Редактирай</a>
+  <a class="action-btn" mat-raised-button color="primary" [routerLink]="['estate-update', estate._id]">Редактирай</a>
   <a class="action-btn" mat-raised-button color="warn" (click)="deleteEstate(estate._id)">Изтрий</a>
 </div>

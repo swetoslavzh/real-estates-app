@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Contact } from 'src/app/data/models/contact.model';
 import { ContactService } from 'src/app/data/services/contact.service';
 import { ContactType } from 'src/app/data/enums/contact-type.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-list',
@@ -19,7 +20,8 @@ export class ContactListComponent implements OnInit {
   public dataSource = [];
 
   constructor(
-    private contactService: ContactService
+    private contactService: ContactService,
+    private router: Router
   ) { }
 
   public ngOnInit() {
@@ -30,6 +32,7 @@ export class ContactListComponent implements OnInit {
   public populateDataSource(contacts: Contact[]) {
     contacts.forEach((contact: Contact) => {
       const row = {
+        'id': contact._id,
         'name': contact.fullName, 
         'type': this.contactType[contact.type], 
         'phoneNumber': contact.phoneNumber, 

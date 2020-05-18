@@ -11,4 +11,5 @@ export interface Contact {
   budget?: number;
   additionalInfo: string;
   creationDate?: string;
+  _id?: string;
 }

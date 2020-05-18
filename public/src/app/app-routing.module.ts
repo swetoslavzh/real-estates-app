@@ -10,6 +10,7 @@ import { ContactListComponent } from './pages/contact/contact-list/contact-list.
 import { ContactDetailsComponent } from './pages/contact/contact-details/contact-details.component';
 import { ContactCreateComponent } from './pages/contact/contact-create/contact-create.component';
 import { ContactUpdateComponent } from './pages/contact/contact-update/contact-update.component';
+import { ContactResolver } from './data/services/comtact.resolver';
 
 const routes: Routes = [
   {
@@ -45,7 +46,8 @@ const routes: Routes = [
   },
   {
     path: 'contacts/:id',
-    component: ContactDetailsComponent
+    component: ContactDetailsComponent,
+    resolve: { estate: ContactResolver }
   },
   {
     path: 'contacts-create',

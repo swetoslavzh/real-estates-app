@@ -42,8 +42,35 @@ function getAllContacts(req, res) {
     });
 }
 function getContact(req, res) {
+    var contactId = req.params.id;
+    Contact_odm_1.default.findOne({ _id: contactId })
+        .then(function (contact) { return res.json(contact); })
+        .catch(function (err) {
+        console.log(err);
+        return res.status(404).json({
+            success: false,
+            message: err.message
+        });
+    });
 }
 function deleteContact(req, res) {
+    var contactId = req.params.id;
+    if (!contactId)
+        return;
+    Contact_odm_1.default.findOneAndDelete({ _id: contactId })
+        .then(function (_data) {
+        return res.status(200).json({
+            success: true,
+            message: 'Contact was successfuly deleted'
+        });
+    })
+        .catch(function (err) {
+        console.log(err);
+        return res.status(404).json({
+            success: false,
+            message: err.message
+        });
+    });
 }
 function updateContact(req, res) {
 }
