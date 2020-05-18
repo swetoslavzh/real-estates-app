@@ -20,6 +20,6 @@
 </table>
 
 <div class="contact-details__actions">
-  <a class="action-btn" mat-raised-button color="primary" [routerLink]="['contact-update', contact._id]">Редактирай</a>
+  <a class="action-btn" mat-raised-button color="primary" [routerLink]="['/contacts-update', contact._id]">Редактирай</a>
   <a class="action-btn" mat-raised-button color="warn" (click)="deleteContact(contact._id)">Изтрий</a>
 </div>

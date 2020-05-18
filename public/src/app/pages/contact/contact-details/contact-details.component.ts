@@ -35,7 +35,6 @@ export class ContactDetailsComponent implements OnInit {
     let { 
       fullName,
       phoneNumber,
-      type: ContactType,
       budget,
       additionalInfo,
       creationDate,
@@ -52,7 +51,8 @@ export class ContactDetailsComponent implements OnInit {
       { 'key': 'Район', 'value': region },
       { 'key': 'Интерес', 'value': type },
       { 'key': 'Бюджет', 'value': budget},
-      { 'key': 'Допълнителна информация', 'value': additionalInfo},
+      { 'key': 'Допълнителна информация', 'value': additionalInfo },
+      { 'key': 'Дата на създаване', 'value': creationDate }
     ];
 
     data.forEach(d => {

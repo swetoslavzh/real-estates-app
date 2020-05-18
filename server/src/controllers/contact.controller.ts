@@ -77,7 +77,28 @@ function deleteContact(req: express.Request, res: express.Response): void {
 }
 
 function updateContact(req: express.Request, res: express.Response): void {
+  const contact = req.body;
+  const id = req.params.id;
+  if (!contact) return;
 
+  const date = new Date();
+  contact.creationDate = date;
+
+  ContactODM.findOneAndUpdate({ _id: id }, contact, { upsert: true })
+    .then((contact) => {
+      return res.status(200).json({
+        success: true,
+        contact: contact,
+        message: 'Contact was successfuly updated'
+        }) 
+      })
+      .catch((err) => {
+        console.log(err);
+        return res.status(404).json({
+          success: false,
+          message: err.message
+        });
+      });
 }
 
 export default {

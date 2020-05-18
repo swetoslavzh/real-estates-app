@@ -55,7 +55,8 @@ const routes: Routes = [
   },
   {
     path: 'contacts-update/:id',
-    component: ContactUpdateComponent
+    component: ContactUpdateComponent,
+    resolve: { contact: ContactResolver }
   }
 ];
 
